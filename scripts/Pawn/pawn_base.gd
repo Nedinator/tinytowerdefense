@@ -14,13 +14,9 @@ enum PawnStates {
 @onready var tree: AnimationTree = $AnimationTree
 @onready var pawn_menu = $PawnMenu
 @onready var pawn_state = PawnStates.IDLE
-@export var select_box : Area2D
 @onready var cursor = %Cursor
+@onready var select_box = $selectBox/CollisionShape2D
 
-func _physics_process(delta):
-	if(Input.is_action_just_pressed("select")):
-		if is_cursor_inside_area(Vector2(cursor.getPosition()) , select_box):
-			toggleSelected()
 
 func setPawnState(state: PawnStates):
 	pawn_state = state;
@@ -28,9 +24,8 @@ func setPawnState(state: PawnStates):
 func setAnimation(state: PawnStates):
 	tree.play(str(state).to_lower())
 
-func toggleSelected():
-	pawn_menu.visible = !pawn_menu.visible
+func _on_select_box_mouse_entered():
+	pawn_menu.visible = true
 
-func is_cursor_inside_area(cursor_position: Vector2, area: Area2D) -> bool:
-	print(cursor_position)
-	return true #working on figuring this out. i may need to make an artificial area2d for the cursor position
+func _on_select_box_mouse_exited():
+	pawn_menu.visible = false

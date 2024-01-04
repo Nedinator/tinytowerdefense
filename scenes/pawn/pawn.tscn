@@ -8,23 +8,6 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fuu6k"]
 
-[sub_resource type="Animation" id="Animation_ksh8d"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
 [sub_resource type="Animation" id="Animation_l34gc"]
 length = 0.001
 tracks/0/type = "value"
@@ -38,23 +21,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_hbjgv"]
-resource_name = "run"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_i5tb2"]
@@ -91,9 +57,9 @@ tracks/0/keys = {
 "values": [18, 19, 20, 21, 22, 23]
 }
 
-[sub_resource type="Animation" id="Animation_lh72w"]
-resource_name = "start_retreat"
-length = 1.1
+[sub_resource type="Animation" id="Animation_ksh8d"]
+resource_name = "idle"
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -102,10 +68,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_cghls"]
@@ -123,6 +89,40 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_hbjgv"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_lh72w"]
+resource_name = "start_retreat"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hmx2x"]
@@ -191,9 +191,8 @@ states/run/position = Vector2(327.3, 227.51)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_lwg7w"), "idle", "build", SubResource("AnimationNodeStateMachineTransition_xh45u"), "build", "idle", SubResource("AnimationNodeStateMachineTransition_qd0u3"), "idle", "chop", SubResource("AnimationNodeStateMachineTransition_u3hed"), "chop", "idle", SubResource("AnimationNodeStateMachineTransition_dgm6o"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_yniy0"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ous3a"), "run", "chop", SubResource("AnimationNodeStateMachineTransition_wst1t"), "chop", "run", SubResource("AnimationNodeStateMachineTransition_b1var"), "run", "build", SubResource("AnimationNodeStateMachineTransition_pe8bh"), "build", "run", SubResource("AnimationNodeStateMachineTransition_1bskg")]
 graph_offset = Vector2(-51.6, -73.6457)
 
-[node name="Pawn" type="CharacterBody2D" node_paths=PackedStringArray("select_box")]
+[node name="Pawn" type="CharacterBody2D"]
 script = ExtResource("1_0leyq")
-select_box = NodePath("selectBox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ydis3")
@@ -216,6 +215,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 
 [node name="selectBox" parent="." instance=ExtResource("3_csg51")]
+scale = Vector2(4.76, 4.76)
 
 [node name="healthBox" parent="." instance=ExtResource("4_jfrr4")]
 
@@ -225,3 +225,6 @@ offset_left = -50.0
 offset_top = -138.0
 offset_right = -50.0
 offset_bottom = -138.0
+
+[connection signal="mouse_entered" from="selectBox" to="." method="_on_select_box_mouse_entered"]
+[connection signal="mouse_exited" from="selectBox" to="." method="_on_select_box_mouse_exited"]
