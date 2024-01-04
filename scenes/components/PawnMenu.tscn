@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bvaubjdn0760y"]
+[gd_scene load_steps=2 format=3 uid="uid://bvaubjdn0760y"]
+
+[ext_resource type="Script" path="res://scripts/Pawn/PawnMenu.gd" id="1_32ncm"]
 
 [node name="PawnMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_32ncm")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -16,6 +19,10 @@ offset_bottom = 40.0
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Walk" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Walk"
+
 [node name="Chop" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 text = "Chop"
@@ -24,6 +31,12 @@ text = "Chop"
 layout_mode = 2
 text = "Mine"
 
-[node name="Build" type="Button" parent="MarginContainer/GridContainer"]
+[node name="Repair" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Build/Repair"
+text = "Repair"
+
+[connection signal="pressed" from="MarginContainer/GridContainer/Walk" to="." method="_on_chop_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Walk" to="." method="_on_walk_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Chop" to="." method="_on_chop_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Mine" to="." method="_on_mine_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Repair" to="." method="_on_repair_pressed"]
