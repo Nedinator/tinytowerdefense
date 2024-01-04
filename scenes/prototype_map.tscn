@@ -1308,6 +1308,7 @@ sources/3 = SubResource("TileSetAtlasSource_rkigo")
 sources/4 = SubResource("TileSetAtlasSource_o5krs")
 
 [node name="PrototypeMap" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Pawn" parent="." instance=ExtResource("1_cuvov")]
 position = Vector2(544, 290)

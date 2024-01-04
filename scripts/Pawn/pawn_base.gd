@@ -17,7 +17,6 @@ enum PawnStates {
 @onready var cursor = %Cursor
 @onready var select_box = $selectBox/CollisionShape2D
 
-
 func setPawnState(state: PawnStates):
 	pawn_state = state;
 
