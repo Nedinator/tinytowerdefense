@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy2q7b6fwl8yf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vg8r3"]
+
+[node name="selectBox" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(3.32, 3.32)
+shape = SubResource("CapsuleShape2D_vg8r3")
