@@ -9,6 +9,14 @@ enum PawnStates {
 	RETREAT
 }
 
+func state_to_string(state: PawnStates):
+	match state:
+		PawnStates.IDLE: return "idle"
+		PawnStates.CHOP: return "chop"
+		PawnStates.MINE: return "mine"
+		PawnStates.RUN: return "run"
+		PawnStates.RETREAT: return "retreating"
+
 @export var hurtbox : Area2D
 
 @onready var tree: AnimationTree = $AnimationTree
@@ -28,6 +36,7 @@ func _ready():
 	astar_grid.cell_size = Vector2(64, 64)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
+	setPawnState(pawn_state)
 
 func _input(event):
 	if event.is_action_pressed("select") == false:
@@ -41,7 +50,6 @@ func _input(event):
 	if id_path.is_empty() == false:
 		current_id_path = id_path
 
-
 func _physics_process(delta):
 	if current_id_path.is_empty():
 		return
@@ -52,13 +60,14 @@ func _physics_process(delta):
 	
 	if global_position == target_position:
 		current_id_path.pop_front()
+		setPawnState(PawnStates.IDLE)
 
 func setPawnState(state: PawnStates):
 	pawn_state = state;
 	setAnimation(state)
 
 func setAnimation(state: PawnStates):
-	anim_player.play(str(state).to_lower())
+	anim_player.play(state_to_string(state))
 
 func _on_select_box_mouse_entered():
 	pawn_menu.visible = true

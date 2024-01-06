@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddxccccm8ygwa"]
+[gd_scene load_steps=29 format=3 uid="uid://ddxccccm8ygwa"]
 
 [ext_resource type="Script" path="res://scripts/Pawn/PawnBase.gd" id="1_w8y8g"]
 [ext_resource type="Texture2D" uid="uid://c6fajdk4j4jxq" path="res://assets/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="2_ydis3"]
@@ -134,6 +134,61 @@ _data = {
 "start_retreat": SubResource("Animation_lh72w")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_scb3t"]
+animation = &"build"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uk0p8"]
+animation = &"chop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7xbxa"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0usml"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lwg7w"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xh45u"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qd0u3"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u3hed"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dgm6o"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yniy0"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ous3a"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wst1t"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1var"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pe8bh"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bskg"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xs7xe"]
+states/build/node = SubResource("AnimationNodeAnimation_scb3t")
+states/build/position = Vector2(231.8, -9.49001)
+states/chop/node = SubResource("AnimationNodeAnimation_uk0p8")
+states/chop/position = Vector2(396.3, -23.49)
+states/idle/node = SubResource("AnimationNodeAnimation_7xbxa")
+states/idle/position = Vector2(539, 218.125)
+states/run/node = SubResource("AnimationNodeAnimation_0usml")
+states/run/position = Vector2(327.3, 227.51)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_lwg7w"), "idle", "build", SubResource("AnimationNodeStateMachineTransition_xh45u"), "build", "idle", SubResource("AnimationNodeStateMachineTransition_qd0u3"), "idle", "chop", SubResource("AnimationNodeStateMachineTransition_u3hed"), "chop", "idle", SubResource("AnimationNodeStateMachineTransition_dgm6o"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_yniy0"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ous3a"), "run", "chop", SubResource("AnimationNodeStateMachineTransition_wst1t"), "chop", "run", SubResource("AnimationNodeStateMachineTransition_b1var"), "run", "build", SubResource("AnimationNodeStateMachineTransition_pe8bh"), "build", "run", SubResource("AnimationNodeStateMachineTransition_1bskg")]
+graph_offset = Vector2(-192.6, -109.646)
+
 [node name="Pawn" type="CharacterBody2D"]
 script = ExtResource("1_w8y8g")
 
@@ -151,5 +206,10 @@ shape = SubResource("CapsuleShape2D_fuu6k")
 libraries = {
 "": SubResource("AnimationLibrary_hmx2x")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_xs7xe")
+anim_player = NodePath("../AnimationPlayer")
+active = true
 
 [node name="healthBox" parent="." instance=ExtResource("4_jfrr4")]
