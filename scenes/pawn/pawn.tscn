@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://ddxccccm8ygwa"]
 
-[ext_resource type="Script" path="res://scripts/Pawn/pawn_base.gd" id="1_0leyq"]
+[ext_resource type="Script" path="res://scripts/Pawn/PawnBase.gd" id="1_w8y8g"]
 [ext_resource type="Texture2D" uid="uid://c6fajdk4j4jxq" path="res://assets/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="2_ydis3"]
 [ext_resource type="PackedScene" uid="uid://dy2q7b6fwl8yf" path="res://scenes/components/select_box.tscn" id="3_csg51"]
 [ext_resource type="PackedScene" uid="uid://d1ws3736a5hph" path="res://scenes/components/health_box.tscn" id="4_jfrr4"]
@@ -192,7 +192,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-51.6, -73.6457)
 
 [node name="Pawn" type="CharacterBody2D"]
-script = ExtResource("1_0leyq")
+script = ExtResource("1_w8y8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ydis3")

@@ -1,5 +1,5 @@
-class_name pawn_base
-extends entity_base
+class_name PawnBase
+extends EntityBase
 
 enum PawnStates {
 	IDLE,
@@ -19,6 +19,7 @@ enum PawnStates {
 
 func setPawnState(state: PawnStates):
 	pawn_state = state;
+	setAnimation(state)
 
 func setAnimation(state: PawnStates):
 	tree.play(str(state).to_lower())
@@ -28,3 +29,4 @@ func _on_select_box_mouse_entered():
 
 func _on_select_box_mouse_exited():
 	pawn_menu.visible = false
+

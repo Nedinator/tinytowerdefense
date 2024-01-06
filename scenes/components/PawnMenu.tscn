@@ -18,6 +18,7 @@ offset_bottom = 40.0
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
+columns = 2
 
 [node name="Walk" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -35,8 +36,8 @@ text = "Mine"
 layout_mode = 2
 text = "Repair"
 
-[connection signal="pressed" from="MarginContainer/GridContainer/Walk" to="." method="_on_chop_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/Walk" to="." method="_on_walk_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Walk" to="." method="_on_chop_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/Chop" to="." method="_on_chop_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/Mine" to="." method="_on_mine_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/Repair" to="." method="_on_repair_pressed"]

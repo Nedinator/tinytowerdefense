@@ -2,6 +2,7 @@ extends Control
 
 
 func _on_chop_pressed():
+
 	pass # Replace with function body.
 
 func _on_mine_pressed():
