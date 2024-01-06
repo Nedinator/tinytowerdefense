@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddxccccm8ygwa" path="res://scenes/pawn/pawn.tscn" id="1_cuvov"]
 [ext_resource type="Texture2D" uid="uid://shdv4q8dy1jv" path="res://assets/Terrain/Ground/Tilemap_Flat.png" id="1_g6kgu"]
 [ext_resource type="Texture2D" uid="uid://cjommj2g21odh" path="res://assets/Terrain/Ground/Tilemap_Elevation.png" id="2_hdggj"]
-[ext_resource type="PackedScene" uid="uid://cenwub3ffuqvw" path="res://scenes/components/camera_2d.tscn" id="5_smne7"]
+[ext_resource type="PackedScene" uid="uid://cenwub3ffuqvw" path="res://scenes/components/Camera.tscn" id="5_smne7"]
 [ext_resource type="PackedScene" uid="uid://dd0dm0wmd1ufd" path="res://scenes/components/Cursor.tscn" id="7_no8si"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bm173"]
@@ -100,6 +100,7 @@ position = Vector2(544, 290)
 unique_name_in_owner = true
 
 [node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
 tile_set = SubResource("TileSet_d2tcw")
 cell_quadrant_size = 64
 format = 2
@@ -112,6 +113,14 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(2293799, 2, 7, 2293800, 65538, 7, 2293801, 131074, 7, 2359335, 2, 7, 2359336, 65538, 7, 2359337, 131074, 7, 2621479, 2, 7, 2621480, 65538, 7, 2621481, 131074, 7)
+layer_2/name = ""
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
 
 [node name="Camera2D" parent="." instance=ExtResource("5_smne7")]
 position = Vector2(659, 325)
+camera_speed = 450

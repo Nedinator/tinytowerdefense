@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/Pawn/PawnBase.gd" id="1_w8y8g"]
 [ext_resource type="Texture2D" uid="uid://c6fajdk4j4jxq" path="res://assets/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="2_ydis3"]
-[ext_resource type="PackedScene" uid="uid://dy2q7b6fwl8yf" path="res://scenes/components/select_box.tscn" id="3_csg51"]
-[ext_resource type="PackedScene" uid="uid://d1ws3736a5hph" path="res://scenes/components/health_box.tscn" id="4_jfrr4"]
+[ext_resource type="PackedScene" uid="uid://dy2q7b6fwl8yf" path="res://scenes/components/SelectBox.tscn" id="3_csg51"]
+[ext_resource type="PackedScene" uid="uid://d1ws3736a5hph" path="res://scenes/components/HealthBox.tscn" id="4_jfrr4"]
 [ext_resource type="PackedScene" uid="uid://bvaubjdn0760y" path="res://scenes/components/PawnMenu.tscn" id="5_pxwed"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fuu6k"]
@@ -198,6 +198,7 @@ script = ExtResource("1_w8y8g")
 texture = ExtResource("2_ydis3")
 hframes = 6
 vframes = 6
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
