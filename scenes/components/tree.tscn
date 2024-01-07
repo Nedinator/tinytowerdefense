@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm24lnn55hlkc"]
+[gd_scene load_steps=5 format=3 uid="uid://dm24lnn55hlkc"]
 
 [ext_resource type="Texture2D" uid="uid://2cua3jqf8acp" path="res://assets/Resources/Trees/Tree.png" id="1_7pgsq"]
+[ext_resource type="Script" path="res://scripts/ReachBox.gd" id="2_rinp2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yy7hw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gesx3"]
 
 [node name="Tree" type="StaticBody2D"]
 
@@ -15,3 +18,25 @@ vframes = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.39, 2.39)
 shape = SubResource("CircleShape2D_yy7hw")
+
+[node name="Press_E" type="Label" parent="."]
+visible = false
+offset_left = -25.0
+offset_top = -177.0
+offset_right = 30.0
+offset_bottom = -151.0
+text = "Press E"
+
+[node name="ReachBox" type="Area2D" parent="." node_paths=PackedStringArray("e_label")]
+script = ExtResource("2_rinp2")
+e_label = NodePath("../Press_E")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReachBox"]
+position = Vector2(3, -49)
+scale = Vector2(12.4, 12.4)
+shape = SubResource("CircleShape2D_gesx3")
+
+[connection signal="area_entered" from="ReachBox" to="ReachBox" method="_on_area_entered"]
+[connection signal="area_exited" from="ReachBox" to="ReachBox" method="_on_area_exited"]
+[connection signal="body_entered" from="ReachBox" to="ReachBox" method="_on_body_entered"]
+[connection signal="body_exited" from="ReachBox" to="ReachBox" method="_on_body_exited"]
