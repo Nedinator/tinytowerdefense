@@ -23,6 +23,7 @@ func state_to_string(state: PawnStates):
 @onready var pawn_state = PawnStates.IDLE
 @onready var cursor = %Cursor
 @onready var tile_map = %"TileMap"
+@onready var pawn_sprite: Sprite2D = $Sprite2D
 
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
@@ -54,7 +55,13 @@ func _physics_process(delta):
 		return
 	
 	var target_position = tile_map.map_to_local(current_id_path.front())
+	var old_position = global_position
 	global_position = global_position.move_toward(target_position, 2)
+	
+	if global_position.x < old_position.x:
+		pawn_sprite.flip_h = true
+	elif global_position.x > old_position.x:
+		pawn_sprite.flip_h = false
 	
 	
 	if global_position == target_position:
